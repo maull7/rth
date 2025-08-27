@@ -64,7 +64,7 @@
 </head>
 <body>
   <!-- Navigation -->
-  <nav class="bg-white/95 backdrop-blur-sm shadow-lg fixed w-full top-0 z-50 transition-all duration-300" id="navbar">
+  <nav class="bg-white/95 backdrop-blur-sm mb-9 shadow-lg fixed w-full top-0 z-50 transition-all duration-300" id="navbar">
     <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
       <a href="#home" class="text-primary-600 font-heading text-2xl font-bold flex items-center space-x-2">
         <div class="w-8 h-8 bg-accent-500 rounded-full flex items-center justify-center animate-bounce">
@@ -117,7 +117,7 @@
   </nav>
 
   <!-- Hero Section -->
-  <section id="home" class="relative min-h-screen flex items-center bg-white overflow-hidden">
+  <section id="home" class="relative min-h-screen pt-0 md:pt-24 items-center bg-white overflow-hidden px-6">
     <!-- Ornamen background dengan animasi -->
 <div class="absolute -top-10 -left-10 w-40 h-40 bg-primary-500 rounded-full opacity-30 animate-wiggle"></div>
 <div class="absolute -top-20 -left-10 w-40 h-40 bg-primary-500 rounded-full opacity-30 animate-float"></div>
@@ -126,10 +126,9 @@
 
 <div class="absolute bottom-0 right-0 w-32 h-32 bg-secondary-700 rounded-full opacity-30 animate-wiggle"></div>
 
-  <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-
-    <!-- Kolom Kiri: Gambar Ilustrasi -->
-    <div class="relative flex justify-center md:justify-start">
+  <div class="container mx-auto">
+    <div class=" grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+     <div class="relative flex justify-center md:justify-start">
       <img src="assets/img/bg-rth.jpg"
            alt="Ilustrasi RTH"
            class="w-full max-w-lg rounded-xl object-cover z-10">
@@ -163,15 +162,20 @@
         </a>
       </div>
     </div>
+    </div>
+
+  </div>
+  <div class="absolute bottom-0 hidden lg:flex">
+
+    <div class="scroll-wrapper">
+      <img src="assets/slider/slide-final.png" class="h-24 object-cover" alt="RTH">
+      <img src="assets/slider/slide-final.png" class="h-24 object-cover" alt="RTH">
+    </div>
   </div>
 
   <!-- Bagian bawah: gambar full panjang berjalan -->
-<div class="absolute bottom-0 left-0 w-full overflow-hidden h-24">
-  <div class="scroll-wrapper">
-    <img src="assets/slider/slide-final.png" class="h-24 object-cover" alt="RTH">
-    <img src="assets/slider/slide-final.png" class="h-24 object-cover" alt="RTH">
-  </div>
-</div>
+
+
 
 
 </section>
