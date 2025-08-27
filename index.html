@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RTH - Ruang Terbuka Hijau Indonesia</title>
+  <!-- Font Awesome CDN -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/js/v4-shims.min.js" integrity="sha512-6xwsAQW60nHeXRpDTtP0Z0bwNufnjkG4nmAiiLvkXq56mv3L7520mT/OUID5dFru9CN0DBfFLYjIajij//rdjQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+</head>
+
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              500: '#22c55e',
+              600: '#16a34a',
+              700: '#15803d',
+            },
+            secondary: {
+              500: '#0288d1',
+              700: '#01579b',
+            },
+            accent: {
+              500: '#fbc02d',
+              700: '#f57f17',
+            },
+            background: '#f9fbe7',
+            text: '#333333',
+          },
+          fontFamily: {
+            heading: ['Poppins', 'sans-serif'],
+            body: ['Nunito Sans', 'sans-serif'],
+          },
+          animation: {
+            'float': 'float 6s ease-in-out infinite',
+            'fade-in': 'fadeIn 0.8s ease-out',
+            'slide-up': 'slideUp 0.6s ease-out',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-20px)' },
+            },
+            fadeIn: {
+              '0%': { opacity: '0' },
+              '100%': { opacity: '1' },
+            },
+            slideUp: {
+              '0%': { transform: 'translateY(30px)', opacity: '0' },
+              '100%': { transform: 'translateY(0)', opacity: '1' },
+            }
+          }
+        },
+      },
+    }
+  </script>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="bg-white/95 backdrop-blur-sm shadow-lg fixed w-full top-0 z-50 transition-all duration-300" id="navbar">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="#home" class="text-primary-600 font-heading text-2xl font-bold flex items-center space-x-2">
+        <div class="w-8 h-8 bg-accent-500 rounded-full flex items-center justify-center animate-bounce">
+          <!-- Icon daun solid -->
+            <i class="fa-brands fa-pagelines text-primary-500 text-xl"></i>
+        </div>
+        <span>RTH</span>
+      </a>
+      <div class="hidden md:flex space-x-8 font-body text-text">
+        <a href="#home" class="hover:text-primary-600 transition duration-300 relative group">
+          Home
+          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-600 group-hover:w-full transition-all duration-300"></span>
+        </a>
+        <a href="#about" class="hover:text-primary-600 transition duration-300 relative group">
+          Tentang
+          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-600 group-hover:w-full transition-all duration-300"></span>
+        </a>
+        <a href="#benefits" class="hover:text-primary-600 transition duration-300 relative group">
+          Manfaat
+          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-600 group-hover:w-full transition-all duration-300"></span>
+        </a>
+        <a href="#gallery" class="hover:text-primary-600 transition duration-300 relative group">
+          Gallery
+          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-600 group-hover:w-full transition-all duration-300"></span>
+        </a>
+        <a href="#contact" class="hover:text-primary-600 transition duration-300 relative group">
+          Kontak
+          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-600 group-hover:w-full transition-all duration-300"></span>
+        </a>
+      </div>
+      <div class="hidden md:block">
+        <a href="#explore" class="bg-gradient-to-r from-accent-500 to-accent-700 hover:from-accent-700 hover:to-accent-500 text-text font-heading px-6 py-2 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105">Jelajahi RTH</a>
+      </div>
+      <button id="menu-btn" class="md:hidden flex flex-col space-y-1 focus:outline-none group">
+        <span class="w-6 h-0.5 bg-text transition-all duration-300 group-hover:bg-primary-600"></span>
+        <span class="w-6 h-0.5 bg-text transition-all duration-300 group-hover:bg-primary-600"></span>
+        <span class="w-6 h-0.5 bg-text transition-all duration-300 group-hover:bg-primary-600"></span>
+      </button>
+    </div>
+    <div id="menu" class="hidden md:hidden bg-white/95 backdrop-blur-sm shadow-md">
+      <div class="flex flex-col space-y-4 px-6 py-4 font-body text-text">
+        <a href="#home" class="hover:text-primary-600 transition duration-300">Home</a>
+        <a href="#about" class="hover:text-primary-600 transition duration-300">Tentang</a>
+        <a href="#benefits" class="hover:text-primary-600 transition duration-300">Manfaat</a>
+        <a href="#gallery" class="hover:text-primary-600 transition duration-300">Gallery</a>
+        <a href="#contact" class="hover:text-primary-600 transition duration-300">Kontak</a>
+        <a href="#explore" class="bg-gradient-to-r from-accent-500 to-accent-700 text-text font-heading px-4 py-2 rounded-full shadow transition text-center">Jelajahi RTH</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="relative min-h-screen flex items-center bg-white overflow-hidden">
+    <!-- Ornamen background dengan animasi -->
+<div class="absolute -top-10 -left-10 w-40 h-40 bg-primary-500 rounded-full opacity-30 animate-wiggle"></div>
+<div class="absolute -top-20 -left-10 w-40 h-40 bg-primary-500 rounded-full opacity-30 animate-float"></div>
+
+<div class="absolute -top-1 left-1/2 -translate-x-1/2 w-40 h-40 bg-accent-500 rounded-full opacity-30 animate-float"></div>
+
+<div class="absolute bottom-0 right-0 w-32 h-32 bg-secondary-700 rounded-full opacity-30 animate-wiggle"></div>
+
+  <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+
+    <!-- Kolom Kiri: Gambar Ilustrasi -->
+    <div class="relative flex justify-center md:justify-start">
+      <img src="assets/img/bg-rth.jpg"
+           alt="Ilustrasi RTH"
+           class="w-full max-w-lg rounded-xl object-cover z-10">
+
+      <!-- Ornamen background dengan animasi naik-turun -->
+      <div class="absolute -top-10 -left-10 w-40 h-40 bg-primary-200 rounded-full opacity-30 animate-float-slow"></div>
+      <div class="absolute bottom-0 right-0 w-32 h-32 bg-secondary-200 rounded-full opacity-30 animate-float"></div>
+    </div>
+
+    <!-- Kolom Kanan: Teks & Penjelasan -->
+    <div class="text-center md:text-left">
+      <div class="flex gap-2 place-items-center text-primary-700">
+      <i class="fa-solid fa-angle-right animate-pulse"></i>
+        <h4 class="font-heading">RUANG TERBUKA HIJAU</h4>
+      </div>
+      <h1 class="text-4xl md:text-5xl font-heading font-bold text-primary-700 leading-snug mb-6">
+        Membangun Indonesia <br>
+        <span class="text-secondary-600">Dengan RTH</span>
+      </h1>
+      <p class="text-lg text-gray-600 leading-relaxed mb-8 font-body">
+       Ruang Terbuka Hijau (RTH) adalah area memanjang atau mengelompok yang digunakan untuk tempat tumbuh tanaman, baik secara alami maupun yang sengaja ditanami, yang berfungsi untuk menjaga kelestarian lingkungan sekaligus meningkatkan kualitas hidup masyarakat.
+      </p>
+
+      <!-- Tombol Aksi -->
+      <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+        <a href="#explore" class="bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 rounded-full font-heading shadow-lg transition">
+          Jelajahi RTH
+        </a>
+        <a href="#about" class="border-2 border-primary-600 text-primary-600 hover:bg-primary-600 hover:text-white px-8 py-4 rounded-full font-heading transition">
+          Pelajari Lebih Lanjut
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bagian bawah: gambar full panjang berjalan -->
+<div class="absolute bottom-0 left-0 w-full overflow-hidden h-24">
+  <div class="scroll-wrapper">
+    <img src="assets/slider/slide-final.png" class="h-24 object-cover" alt="RTH">
+    <img src="assets/slider/slide-final.png" class="h-24 object-cover" alt="RTH">
+  </div>
+</div>
+
+
+</section>
+
+
+</body>
+</html>

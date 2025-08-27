@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RTH - Ruang Terbuka Hijau Indonesia</title>
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              500: '#22c55e',
+              600: '#16a34a',
+              700: '#15803d',
+            },
+            secondary: {
+              500: '#0288d1',
+              600: '#0277bd',
+              700: '#01579b',
+            },
+            accent: {
+              500: '#fbc02d',
+              700: '#f57f17',
+            },
+            background: '#f9fbe7',
+            text: '#333333',
+          },
+          fontFamily: {
+            heading: ['Poppins', 'sans-serif'],
+            body: ['Nunito Sans', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+
+  <style>
+    /* Custom CSS untuk animasi dan styling */
+    :root {
+      --primary-500: #22c55e;
+      --primary-600: #16a34a;
+      --primary-700: #15803d;
+      --secondary-500: #0288d1;
+      --secondary-600: #0277bd;
+      --secondary-700: #01579b;
+      --accent-500: #fbc02d;
+      --accent-700: #f57f17;
+      --background: #f9fbe7;
+      --text: #333333;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Nunito Sans', sans-serif;
+      color: var(--text);
+      background-color: var(--background);
+      scroll-behavior: smooth;
+    }
+
+    /* Animasi Float */
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+
+    @keyframes float-slow {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-15px); }
+    }
+
+    .animate-float {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .animate-float-slow {
+      animation: float-slow 8s ease-in-out infinite;
+    }
+
+    /* Animasi Scroll Slider */
+    @keyframes scroll-left {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+
+    .scroll-container {
+      width: 100%;
+      height: 120px;
+      overflow: hidden;
+      position: relative;
+      background: linear-gradient(90deg, rgba(34, 197, 94, 0.1) 0%, rgba(2, 136, 209, 0.1) 50%, rgba(251, 192, 45, 0.1) 100%);
+    }
+
+    .scroll-content {
+      display: flex;
+      width: 200%; /* Double width untuk seamless loop */
+      height: 100%;
+      animation: scroll-left 30s linear infinite;
+    }
+
+    .scroll-content img {
+      height: 100%;
+      width: auto;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-right: 16px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Placeholder untuk gambar RTH */
+    .rth-placeholder {
+      height: 120px;
+      min-width: 200px;
+      background: linear-gradient(135deg, var(--primary-500), var(--secondary-500));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+      border-radius: 8px;
+      margin-right: 16px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Navbar scroll effect */
+    .navbar-scrolled {
+      background-color: rgba(255, 255, 255, 0.98) !important;
+      backdrop-filter: blur(10px);
+    }
+
+    /* Smooth transitions */
+    .transition-smooth {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Custom gradient backgrounds */
+    .bg-gradient-primary {
+      background: linear-gradient(135deg, var(--primary-500), var(--primary-700));
+    }
+
+    .bg-gradient-secondary {
+      background: linear-gradient(135deg, var(--secondary-500), var(--secondary-700));
+    }
+
+    .bg-gradient-accent {
+      background: linear-gradient(135deg, var(--accent-500), var(--accent-700));
+    }
+
+    /* Card hover effects */
+    .card-hover {
+      transition: all 0.3s ease;
+      transform: translateY(0);
+    }
+
+    .card-hover:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Text glow effect */
+    .text-glow {
+      text-shadow: 0 0 20px rgba(34, 197, 94, 0.5);
+    }
+
+    /* Button pulse animation */
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    .btn-pulse:hover {
+      animation: pulse 2s infinite;
+    }
+
+    /* Section padding */
+    .section-padding {
+      padding: 80px 0;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .scroll-content {
+        animation-duration: 20s;
+      }
+
+      .section-padding {
+        padding: 60px 0;
+      }
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--primary-500);
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--primary-600);
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="bg-white/95 backdrop-blur-sm shadow-lg fixed w-full top-0 z-50 transition-all duration-300" id="navbar">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="#home" class="text-primary-600 font-heading text-2xl font-bold flex items-center space-x-2">
+        <div class="w-8 h-8 bg-accent-500 rounded-full flex items-center justify-center">
+          <i class="fa-brands fa-pagelines text-primary-500 text-xl"></i>
+        </div>
+        <span>RTH Indonesia</span>
+      </a>
+
+      <div class="hidden md:flex space-x-8 font-body text-text">
+        <a href="#home" class="hover:text-primary-600 transition duration-300 relative group">
+          Home
+          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-600 group-hover:w-full transition-all duration-300"></span>
+        </a>
+        <a href="#about" class="hover:text-primary-600 transition duration-300 relative group">
+          Tentang
+          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-600 group-hover:w-full transition-all duration-300"></span>
+        </a>
+        <a href="#benefits" class="hover:text-primary-600 transition duration-300 relative group">
+          Manfaat
+          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-600 group-hover:w-full transition-all duration-300"></span>
+        </a>
+        <a href="#gallery" class="hover:text-primary-600 transition duration-300 relative group">
+          Gallery
+          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-600 group-hover:w-full transition-all duration-300"></span>
+        </a>
+        <a href="#contact" class="hover:text-primary-600 transition duration-300 relative group">
+          Kontak
+          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-600 group-hover:w-full transition-all duration-300"></span>
+        </a>
+      </div>
+
+      <div class="hidden md:block">
+        <a href="#explore" class="bg-gradient-to-r from-accent-500 to-accent-700 hover:from-accent-700 hover:to-accent-500 text-text font-heading px-6 py-2 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105 btn-pulse">
+          Jelajahi RTH
+        </a>
+      </div>
+
+      <button id="menu-btn" class="md:hidden flex flex-col space-y-1 focus:outline-none group">
+        <span class="w-6 h-0.5 bg-text transition-all duration-300 group-hover:bg-primary-600"></span>
+        <span class="w-6 h-0.5 bg-text transition-all duration-300 group-hover:bg-primary-600"></span>
+        <span class="w-6 h-0.5 bg-text transition-all duration-300 group-hover:bg-primary-600"></span>
+      </button>
+    </div>
+
+    <div id="menu" class="hidden md:hidden bg-white/95 backdrop-blur-sm shadow-md">
+      <div class="flex flex-col space-y-4 px-6 py-4 font-body text-text">
+        <a href="#home" class="hover:text-primary-600 transition duration-300">Home</a>
+        <a href="#about" class="hover:text-primary-600 transition duration-300">Tentang</a>
+        <a href="#benefits" class="hover:text-primary-600 transition duration-300">Manfaat</a>
+        <a href="#gallery" class="hover:text-primary-600 transition duration-300">Gallery</a>
+        <a href="#contact" class="hover:text-primary-600 transition duration-300">Kontak</a>
+        <a href="#explore" class="bg-gradient-to-r from-accent-500 to-accent-700 text-text font-heading px-4 py-2 rounded-full shadow transition text-center">Jelajahi RTH</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="relative min-h-screen flex items-center bg-white overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <!-- Kolom Kiri: Gambar Ilustrasi -->
+      <div class="relative flex justify-center md:justify-start">
+        <!-- Placeholder untuk gambar utama -->
+        <div class="w-full max-w-lg h-96 bg-gradient-to-br from-primary-400 to-secondary-400 rounded-xl flex items-center justify-center z-10 shadow-2xl">
+          <div class="text-center text-white">
+            <i class="fas fa-leaf text-6xl mb-4"></i>
+            <h3 class="text-2xl font-bold">Ruang Terbuka Hijau</h3>
+            <p class="text-lg opacity-90">Indonesia</p>
+          </div>
+        </div>
+
+        <!-- Ornamen background dengan animasi naik-turun -->
+        <div class="absolute -top-10 -left-10 w-40 h-40 bg-primary-200 rounded-full opacity-30 animate-float-slow"></div>
+        <div class="absolute bottom-0 right-0 w-32 h-32 bg-secondary-200 rounded-full opacity-30 animate-float"></div>
+        <div class="absolute top-1/2 -right-5 w-20 h-20 bg-accent-200 rounded-full opacity-40 animate-float"></div>
+      </div>
+
+      <!-- Kolom Kanan: Teks & Penjelasan -->
+      <div class="text-center md:text-left">
+        <h1 class="text-4xl md:text-5xl font-heading font-bold text-primary-700 leading-snug mb-6 text-glow">
+          Membangun Indonesia <br>
+          <span class="text-secondary-600">Yang Lebih Hijau</span>
+        </h1>
+        <p class="text-lg text-gray-600 leading-relaxed mb-8 font-body">
+          Ruang Terbuka Hijau (RTH) adalah bagian dari ruang terbuka suatu wilayah yang diisi oleh tumbuhan dan tanaman
+          guna mendukung manfaat ekologi, sosial, budaya, ekonomi dan estetika. Mari bersama-sama menciptakan
+          lingkungan yang lebih sehat dan berkelanjutan untuk generasi masa depan.
+        </p>
+
+        <!-- Statistik singkat -->
+        <div class="grid grid-cols-2 gap-4 mb-8">
+          <div class="text-center p-4 bg-primary-50 rounded-lg">
+            <div class="text-2xl font-bold text-primary-600">30%</div>
+            <div class="text-sm text-gray-600">Target RTH Kota</div>
+          </div>
+          <div class="text-center p-4 bg-secondary-50 rounded-lg">
+            <div class="text-2xl font-bold text-secondary-600">20%</div>
+            <div class="text-sm text-gray-600">RTH Privat</div>
+          </div>
+        </div>
+
+        <!-- Tombol Aksi -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+          <a href="#explore" class="bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 rounded-full font-heading shadow-lg transition-smooth btn-pulse">
+            <i class="fas fa-search mr-2"></i>
+            Jelajahi RTH Indonesia
+          </a>
+          <a href="#about" class="border-2 border-primary-600 text-primary-600 hover:bg-primary-600 hover:text-white px-8 py-4 rounded-full font-heading transition-smooth">
+            <i class="fas fa-info-circle mr-2"></i>
+            Pelajari Lebih Lanjut
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bagian bawah: Slider gambar RTH berjalan -->
+    <div class="absolute bottom-0 left-0 w-full">
+      <div class="scroll-container">
+        <div class="scroll-content">
+          <!-- Set pertama gambar -->
+          <div class="rth-placeholder">
+            <div class="text-center">
+              <i class="fas fa-tree text-2xl mb-1"></i>
+              <div class="text-sm">Taman Kota Jakarta</div>
+            </div>
+          </div>
+          <div class="rth-placeholder bg-gradient-secondary">
+            <div class="text-center">
+              <i class="fas fa-seedling text-2xl mb-1"></i>
+              <div class="text-sm">Hutan Kota Bandung</div>
+            </div>
+          </div>
+          <div class="rth-placeholder bg-gradient-accent">
+            <div class="text-center">
+              <i class="fas fa-leaf text-2xl mb-1"></i>
+              <div class="text-sm">Taman Bungkul Surabaya</div>
+            </div>
+          </div>
+          <div class="rth-placeholder" style="background: linear-gradient(135deg, #10b981, #059669);">
+            <div class="text-center">
+              <i class="fas fa-spa text-2xl mb-1"></i>
+              <div class="text-sm">Alun-Alun Yogyakarta</div>
+            </div>
+          </div>
+          <div class="rth-placeholder" style="background: linear-gradient(135deg, #8b5cf6, #7c3aed);">
+            <div class="text-center">
+              <i class="fas fa-flower text-2xl mb-1"></i>
+              <div class="text-sm">Taman Sari Solo</div>
+            </div>
+          </div>
+
+          <!-- Set kedua gambar (duplikasi untuk seamless loop) -->
+          <div class="rth-placeholder">
+            <div class="text-center">
+              <i class="fas fa-tree text-2xl mb-1"></i>
+              <div class="text-sm">Taman Kota Jakarta</div>
+            </div>
+          </div>
+          <div class="rth-placeholder bg-gradient-secondary">
+            <div class="text-center">
+              <i class="fas fa-seedling text-2xl mb-1"></i>
+              <div class="text-sm">Hutan Kota Bandung</div>
+            </div>
+          </div>
+          <div class="rth-placeholder bg-gradient-accent">
+            <div class="text-center">
+              <i class="fas fa-leaf text-2xl mb-1"></i>
+              <div class="text-sm">Taman Bungkul Surabaya</div>
+            </div>
+          </div>
+          <div class="rth-placeholder" style="background: linear-gradient(135deg, #10b981, #059669);">
+            <div class="text-center">
+              <i class="fas fa-spa text-2xl mb-1"></i>
+              <div class="text-sm">Alun-Alun Yogyakarta</div>
+            </div>
+          </div>
+          <div class="rth-placeholder" style="background: linear-gradient(135deg, #8b5cf6, #7c3aed);">
+            <div class="text-center">
+              <i class="fas fa-flower text-2xl mb-1"></i>
+              <div class="text-sm">Taman Sari Solo</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="section-padding bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl md:text-5xl font-heading font-bold text-gray-800 mb-6">
+          Tentang <span class="text-primary-600">RTH Indonesia</span>
+        </h2>
+        <p class="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+          Ruang Terbuka Hijau adalah area memanjang/jalur dan atau mengelompok yang penggunaannya
+          lebih bersifat terbuka, tempat tumbuh tanaman baik yang tumbuh secara alamiah maupun yang sengaja ditanam.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="card-hover bg-gradient-to-br from-primary-50 to-primary-100 p-8 rounded-2xl shadow-lg">
+          <div class="w-16 h-16 bg-primary-500 rounded-full flex items-center justify-center mb-6 mx-auto">
+            <i class="fas fa-tree text-2xl text-white"></i>
+          </div>
+          <h3 class="text-xl font-heading font-bold text-center text-gray-800 mb-4">RTH Publik</h3>
+          <p class="text-gray-600 text-center leading-relaxed">
+            Ruang terbuka hijau yang dimiliki dan dikelola oleh pemerintah yang digunakan untuk kepentingan masyarakat secara umum.
+          </p>
+          <div class="mt-4 text-center">
+            <span class="text-2xl font-bold text-primary-600">20%</span>
+            <p class="text-sm text-gray-500">dari luas kota</p>
+          </div>
+        </div>
+
+        <div class="card-hover bg-gradient-to-br from-secondary-50 to-secondary-100 p-8 rounded-2xl shadow-lg">
+          <div class="w-16 h-16 bg-secondary-500 rounded-full flex items-center justify-center mb-6 mx-auto">
+            <i class="fas fa-home text-2xl text-white"></i>
+          </div>
+          <h3 class="text-xl font-heading font-bold text-center text-gray-800 mb-4">RTH Privat</h3>
+          <p class="text-gray-600 text-center leading-relaxed">
+            Ruang terbuka hijau milik institusi tertentu atau orang perseorangan yang pemanfaatannya untuk kalangan terbatas.
+          </p>
+          <div class="mt-4 text-center">
+            <span class="text-2xl font-bold text-secondary-600">10%</span>
+            <p class="text-sm text-gray-500">dari luas kota</p>
+          </div>
+        </div>
+
+        <div class="card-hover bg-gradient-to-br from-accent-50 to-accent-100 p-8 rounded-2xl shadow-lg">
+          <div class="w-16 h-16 bg-accent-500 rounded-full flex items-center justify-center mb-6 mx-auto">
+            <i class="fas fa-leaf text-2xl text-white"></i>
+          </div>
+          <h3 class="text-xl font-heading font-bold text-center text-gray-800 mb-4">Fungsi RTH</h3>
+          <p class="text-gray-600 text-center leading-relaxed">
+            Memberikan manfaat ekologi, sosial budaya, ekonomi, dan estetika untuk meningkatkan kualitas lingkungan hidup.
+          </p>
+          <div class="mt-4 text-center">
+            <span class="text-2xl font-bold text-accent-600">100%</span>
+            <p class="text-sm text-gray-500">manfaat optimal</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits Section -->
+  <section id="benefits" class="section-padding bg-gradient-to-br from-background via-primary-50 to-secondary-50">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl md:text-5xl font-heading font-bold text-gray-800 mb-6">
+          Manfaat <span class="text-primary-600">RTH</span>
+        </h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Ruang Terbuka Hijau memberikan berbagai manfaat penting bagi kehidupan perkotaan dan lingkungan
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        <div class="text-center p-6 bg-white rounded-2xl shadow-lg card-hover">
+          <div class="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="fas fa-wind text-2xl text-white"></i>
+          </div>
+          <h3 class="text-lg font-heading font-bold text-gray-800 mb-2">Kualitas Udara</h3>
+          <p class="text-gray-600 text-sm">Menyerap CO₂ dan menghasilkan O₂</p>
+        </div>
+
+        <div class="text-center p-6 bg-white rounded-2xl shadow-lg card-hover">
+          <div class="w-16 h-16 bg-gradient-secondary rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="fas fa-thermometer-half text-2xl text-white"></i>
+          </div>
+          <h3 class="text-lg font-heading font-bold text-gray-800 mb-2">Iklim Mikro</h3>
+          <p class="text-gray-600 text-sm">Menurunkan suhu perkotaan</p>
+        </div>
+
+        <div class="text-center p-6 bg-white rounded-2xl shadow-lg card-hover">
+          <div class="w-16 h-16 bg-gradient-accent rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="fas fa-tint text-2xl text-white"></i>
+          </div>
+          <h3 class="text-lg font-heading font-bold text-gray-800 mb-2">Siklus Air</h3>
+          <p class="text-gray-600 text-sm">Resapan air dan cegah banjir</p>
+        </div>
+
+        <div class="text-center p-6 bg-white rounded-2xl shadow-lg card-hover">
+          <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-green-700 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="fas fa-heart text-2xl text-white"></i>
+          </div>
+          <h3 class="text-lg font-heading font-bold text-gray-800 mb-2">Kesehatan</h3>
+          <p class="text-gray-600 text-sm">Ruang rekreasi & relaksasi</p>
+        </div>
+      </div>
+
+      <!-- Target RTH Nasional -->
+      <div class="text-center">
+        <div class="inline-block bg-gradient-to-br from-primary-500 to-secondary-500 rounded-3xl p-8 text-white">
+          <h3 class="text-2xl font-heading font-bold mb-4">Target Nasional RTH</h3>
+          <div class="text-6xl font-bold mb-2">30%</div>
+          <p class="text-lg opacity-90 mb-4">dari total luas wilayah kota harus berupa Ruang Terbuka Hijau</p>
+          <div class="bg-white/20 rounded-full px-6 py-2">
+            <p class="text-sm">UU No. 26 Tahun 2007 tentang Penataan Ruang</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section id="gallery" class="section-padding bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl md:text-5xl font-heading font-bold text-gray-800 mb-6">
+          Gallery <span class="text-primary-600">RTH Indonesia</span>
+        </h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Jelajahi keindahan berbagai Ruang Terbuka Hijau di seluruh Indonesia
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="group relative overflow-hidden rounded-2xl shadow-lg card-hover">
+          <div class="bg-gradient-primary h-64 flex items-center justify-center">
+            <div class="text-center text-white">
+              <i class="fas fa-mountain text-4xl mb-4"></i>
+              <h3 class="text-xl font-heading font-bold">Taman Suropati</h3>
+              <p class="text-sm opacity-90">Jakarta Pusat</p>
+            </div>
+          </div>
+          <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center">
+            <div class="text-center text-white p-6">
+              <p class="mb-4">Taman kota ikonik di jantung Jakarta dengan koleksi patung ASEAN</p>
+              <button class="bg-primary-500 hover:bg-primary-600 px-4 py-2 rounded-full transition-smooth">
+                <i class="fas fa-eye mr-2"></i>Lihat Detail
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="group relative overflow-hidden rounded-2xl shadow-lg card-hover">
+          <div class="bg-gradient-secondary h-64 flex items-center justify-center">
+            <div class="text-center text-white">
+              <i class="fas fa

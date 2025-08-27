@@ -1,0 +1,50 @@
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(15px); }
+}
+.scroll-wrapper {
+  display: flex;
+  width: max-content;
+  animation: scroll-left 40s linear infinite;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+.animate-float-slow {
+  animation: float-slow 6s ease-in-out infinite;
+}
+
+@keyframes wiggle {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(5px, -5px) rotate(3deg);
+  }
+  50% {
+    transform: translate(-5px, 5px) rotate(-3deg);
+  }
+  75% {
+    transform: translate(5px, 5px) rotate(2deg);
+  }
+}
+
+.animate-wiggle {
+  animation: wiggle 6s ease-in-out infinite;
+}
