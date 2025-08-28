@@ -13,6 +13,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/style.css">
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="assets/mouse.css">
 
 <script>
         tailwind.config = {
@@ -102,6 +103,11 @@
     </script>
 </head>
 <body>
+
+    <!-- mouse cursor -->
+     <div class="custom-cursor" id="cursor"></div>
+
+
   <!-- Navigation -->
   <nav class="bg-white/95 backdrop-blur-sm mb-9 shadow-lg fixed w-full top-0 z-50 transition-all duration-300" id="navbar">
     <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
@@ -119,6 +125,10 @@
         </a>
         <a href="#about" class="hover:text-primary-600 transition duration-300 relative group">
           Tentang
+          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-600 group-hover:w-full transition-all duration-300"></span>
+        </a>
+        <a href="#type" class="hover:text-primary-600 transition duration-300 relative group">
+          Jenis
           <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-600 group-hover:w-full transition-all duration-300"></span>
         </a>
         <a href="#benefits" class="hover:text-primary-600 transition duration-300 relative group">
@@ -147,6 +157,7 @@
       <div class="flex flex-col space-y-4 px-6 py-4 font-body text-text">
         <a href="#home" class="hover:text-primary-600 transition duration-300">Home</a>
         <a href="#about" class="hover:text-primary-600 transition duration-300">Tentang</a>
+        <a href="#type" class="hover:text-primary-600 transition duration-300">Jenis</a>
         <a href="#benefits" class="hover:text-primary-600 transition duration-300">Manfaat</a>
         <a href="#gallery" class="hover:text-primary-600 transition duration-300">Gallery</a>
         <a href="#contact" class="hover:text-primary-600 transition duration-300">Kontak</a>
@@ -439,6 +450,220 @@
         </div>
     </section>
 
+    <!-- Type Section -->
+    <section class="py-16" id="type">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+
+            <!-- Header Section -->
+            <div class="text-center mb-16">
+                <div class="flex items-center justify-center gap-2 mb-6">
+                    <i class="fa-solid fa-seedling text-secondary-600 text-lg icon-bounce"></i>
+                    <span class="text-secondary-700 font-heading text-sm uppercase tracking-wider font-semibold">Klasifikasi RTH</span>
+                </div>
+                <h2 class="text-4xl md:text-5xl font-heading font-bold text-text mb-6 leading-tight">
+                    Jenis-Jenis <span class="gradient-text">RTH</span>
+                </h2>
+                <p class="text-lg md:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+                    Ruang Terbuka Hijau diklasifikasikan berdasarkan berbagai kriteria untuk mendukung perencanaan dan pengelolaan yang optimal.
+                </p>
+            </div>
+
+            <!-- Classification Cards Grid -->
+            <div class="space-y-12">
+
+                <!-- Berdasarkan Kepemilikan -->
+                <div class="bg-white rounded-2xl shadow-xl border border-secondary-100 overflow-hidden">
+                    <div class="bg-gradient-to-r from-secondary-500 to-secondary-600 p-6">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
+                                <i class="fa-solid fa-building text-white text-xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-heading font-bold text-white">Berdasarkan Kepemilikan</h3>
+                        </div>
+                    </div>
+
+                    <div class="p-8">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <!-- RTH Publik -->
+                            <div class="bg-gradient-to-br from-secondary-50 to-secondary-100 rounded-xl p-6 card-hover">
+                                <div class="flex items-center gap-4 mb-4">
+                                    <div class="w-12 h-12 bg-secondary-200 rounded-full flex items-center justify-center">
+                                        <i class="fa-solid fa-users text-secondary-700 text-xl"></i>
+                                    </div>
+                                    <h4 class="text-xl font-heading font-semibold text-text">RTH Publik</h4>
+                                </div>
+                                <ul class="space-y-3 text-gray-600">
+                                    <li class="flex items-center gap-3">
+                                        <i class="fa-solid fa-tree text-secondary-500 text-sm"></i>
+                                        <span>Taman kota dan taman lingkungan</span>
+                                    </li>
+                                    <li class="flex items-center gap-3">
+                                        <i class="fa-solid fa-tree text-secondary-500 text-sm"></i>
+                                        <span>Jalur hijau jalan dan rel kereta</span>
+                                    </li>
+                                    <li class="flex items-center gap-3">
+                                        <i class="fa-solid fa-tree text-secondary-500 text-sm"></i>
+                                        <span>RTH kawasan perkantoran</span>
+                                    </li>
+                                    <li class="flex items-center gap-3">
+                                        <i class="fa-solid fa-tree text-secondary-500 text-sm"></i>
+                                        <span>Hutan kota</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- RTH Privat -->
+                            <div class="bg-gradient-to-br from-primary-50 to-primary-100 rounded-xl p-6 card-hover">
+                                <div class="flex items-center gap-4 mb-4">
+                                    <div class="w-12 h-12 bg-primary-200 rounded-full flex items-center justify-center">
+                                        <i class="fa-solid fa-home text-primary-700 text-xl"></i>
+                                    </div>
+                                    <h4 class="text-xl font-heading font-semibold text-text">RTH Privat</h4>
+                                </div>
+                                <ul class="space-y-3 text-gray-600">
+                                    <li class="flex items-center gap-3">
+                                        <i class="fa-solid fa-leaf text-primary-500 text-sm"></i>
+                                        <span>Halaman rumah dan pekarangan</span>
+                                    </li>
+                                    <li class="flex items-center gap-3">
+                                        <i class="fa-solid fa-leaf text-primary-500 text-sm"></i>
+                                        <span>Kebun dan taman pribadi</span>
+                                    </li>
+                                    <li class="flex items-center gap-3">
+                                        <i class="fa-solid fa-leaf text-primary-500 text-sm"></i>
+                                        <span>RTH kawasan komersial</span>
+                                    </li>
+                                    <li class="flex items-center gap-3">
+                                        <i class="fa-solid fa-leaf text-primary-500 text-sm"></i>
+                                        <span>Green roof dan vertical garden</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- Berdasarkan Bentuk dan Struktur -->
+                <div class="bg-white rounded-2xl shadow-xl border border-primary-100 overflow-hidden">
+                    <div class="bg-gradient-to-r from-primary-500 to-primary-600 p-6">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
+                                <i class="fa-solid fa-shapes text-white text-xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-heading font-bold text-white">Berdasarkan Bentuk dan Struktur</h3>
+                        </div>
+                    </div>
+
+                    <div class="p-8">
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                            <!-- RTH Linear -->
+                            <div class="bg-gradient-to-br from-primary-50 to-primary-100 rounded-xl p-6 card-hover text-center">
+                                <div class="w-16 h-16 bg-primary-200 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <i class="fa-solid fa-road text-primary-700 text-2xl"></i>
+                                </div>
+                                <h4 class="text-lg font-heading font-semibold text-text mb-3">RTH Linear</h4>
+                                <p class="text-sm text-gray-600">Jalur hijau sepanjang jalan, sungai, atau infrastruktur linear</p>
+                            </div>
+
+                            <!-- RTH Areal -->
+                            <div class="bg-gradient-to-br from-secondary-50 to-secondary-100 rounded-xl p-6 card-hover text-center">
+                                <div class="w-16 h-16 bg-secondary-200 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <i class="fa-solid fa-square text-secondary-700 text-2xl"></i>
+                                </div>
+                                <h4 class="text-lg font-heading font-semibold text-text mb-3">RTH Areal</h4>
+                                <p class="text-sm text-gray-600">Taman, lapangan, dan area hijau dengan bentuk tertentu</p>
+                            </div>
+
+                            <!-- RTH Vertikal -->
+                            <div class="bg-gradient-to-br from-nature-50 to-nature-100 rounded-xl p-6 card-hover text-center">
+                                <div class="w-16 h-16 bg-nature-200 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <i class="fa-solid fa-building text-nature-700 text-2xl"></i>
+                                </div>
+                                <h4 class="text-lg font-heading font-semibold text-text mb-3">RTH Vertikal</h4>
+                                <p class="text-sm text-gray-600">Green wall, vertical garden pada bangunan tinggi</p>
+                            </div>
+
+                            <!-- RTH Atap -->
+                            <div class="bg-gradient-to-br from-accent-50 to-accent-100 rounded-xl p-6 card-hover text-center">
+                                <div class="w-16 h-16 bg-accent-200 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <i class="fa-solid fa-home text-accent-700 text-2xl"></i>
+                                </div>
+                                <h4 class="text-lg font-heading font-semibold text-text mb-3">RTH Atap</h4>
+                                <p class="text-sm text-gray-600">Green roof dan rooftop garden pada bangunan</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Statistics Section -->
+                <div class="bg-gradient-to-br from-white to-secondary-50 rounded-2xl shadow-xl p-8 border border-secondary-100">
+                    <div class="text-center mb-8">
+                        <h3 class="text-2xl font-heading font-bold text-text mb-4">Komposisi RTH Indonesia</h3>
+                        <p class="text-gray-600">Distribusi jenis RTH berdasarkan klasifikasi</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                        <div class="text-center p-6 bg-gradient-to-br from-secondary-100 to-secondary-200 rounded-xl">
+                            <div class="w-16 h-16 bg-secondary-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                               <i class="fa-solid fa-users text-xl text-white"></i>
+                            </div>
+                            <div class="text-3xl font-bold text-secondary-600 mb-2">65%</div>
+                            <div class="text-sm text-gray-700 font-medium">RTH Publik</div>
+                            <div class="text-xs text-gray-600 mt-1">Dikelola pemerintah</div>
+                        </div>
+
+                        <div class="text-center p-6 bg-gradient-to-br from-primary-100 to-primary-200 rounded-xl">
+                            <div class="w-16 h-16 bg-primary-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fa-solid fa-home text-white text-xl"></i>
+                            </div>
+                            <div class="text-3xl font-bold text-primary-600 mb-2">25%</div>
+                            <div class="text-sm text-gray-700 font-medium">RTH Privat</div>
+                            <div class="text-xs text-gray-600 mt-1">Milik swasta/individu</div>
+                        </div>
+
+                        <div class="text-center p-6 bg-gradient-to-br from-nature-100 to-nature-200 rounded-xl">
+                            <div class="w-16 h-16 bg-nature-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fa-solid fa-seedling text-white text-xl"></i>
+                            </div>
+                            <div class="text-3xl font-bold text-nature-600 mb-2">10%</div>
+                            <div class="text-sm text-gray-700 font-medium">RTH Inovatif</div>
+                            <div class="text-xs text-gray-600 mt-1">Vertikal & atap hijau</div>
+                        </div>
+                    </div>
+
+                    <!-- Fun Facts -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-gradient-to-r from-secondary-50 to-nature-50 rounded-xl p-6">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 bg-secondary-200 rounded-full flex items-center justify-center">
+                                    <i class="fa-solid fa-lightbulb text-secondary-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">Fakta Menarik</h4>
+                                    <p class="text-sm text-gray-600">RTH linear dapat mengurangi polusi hingga 40%</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-gradient-to-r from-nature-50 to-accent-50 rounded-xl p-6">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 bg-nature-200 rounded-full flex items-center justify-center">
+                                    <i class="fa-solid fa-chart-line text-nature-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">Tren Terbaru</h4>
+                                    <p class="text-sm text-gray-600">RTH vertikal meningkat 30% setiap tahun</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
   <!-- Benefits Section -->
    <section id="benefits" class="py-20 bg-gradient-to-br from-primary-50 via-white to-secondary-400">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -626,7 +851,7 @@
 
             <!-- Swiper Carousel -->
             <div class="swiper gallerySwiper relative">
-                <div class="swiper-wrapper">
+                <div class="swiper-wrapper mb-8">
                     <!-- Slide 1 -->
                     <div class="swiper-slide">
                         <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 relative group">
@@ -1069,9 +1294,7 @@
                 <h3 class="text-2xl font-bold text-gray-800 mb-6 text-center">RTH Terkenal di Bogor</h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
-                        <div class="h-48 bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center">
-                            <i class="fa-solid fa-seedling text-white text-6xl"></i>
-                        </div>
+                       <img src="assets/img/kebun-raya-bogor.jpg" alt="Kebun Raya Bogor">
                         <div class="p-6">
                             <h4 class="font-bold text-lg text-gray-800 mb-2">Kebun Raya Bogor</h4>
                             <p class="text-gray-600 text-sm mb-3">Kebun raya tertua di Indonesia dengan koleksi tanaman terlengkap</p>
@@ -1083,9 +1306,7 @@
                     </div>
 
                     <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
-                        <div class="h-48 bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">
-                            <i class="fa-solid fa-tree text-white text-6xl"></i>
-                        </div>
+                       <img src="assets/img/taman-topi.png" alt="Taman Topi">
                         <div class="p-6">
                             <h4 class="font-bold text-lg text-gray-800 mb-2">Taman Topi</h4>
                             <p class="text-gray-600 text-sm mb-3">Taman kota yang menjadi ikon rekreasi keluarga di Bogor</p>
@@ -1097,9 +1318,7 @@
                     </div>
 
                     <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
-                        <div class="h-48 bg-gradient-to-br from-orange-400 to-orange-600 flex items-center justify-center">
-                            <i class="fa-solid fa-leaf text-white text-6xl"></i>
-                        </div>
+                        <img src="assets/img/semput.jpeg" alt="Taman Sempur">
                         <div class="p-6">
                             <h4 class="font-bold text-lg text-gray-800 mb-2">Taman Sempur</h4>
                             <p class="text-gray-600 text-sm mb-3">Taman lingkungan dengan fasilitas olahraga dan rekreasi</p>
@@ -1507,5 +1726,45 @@
                 }
             });
         });
+    </script>
+
+<!-- script cursor -->
+ <script>
+        // Custom cursor functionality
+        const cursor = document.getElementById('cursor');
+        let mouseX = 0, mouseY = 0;
+        let currentX = 0, currentY = 0;
+
+        // Smooth cursor movement
+        function updateCursor() {
+            currentX += (mouseX - currentX) * 0.1;
+            currentY += (mouseY - currentY) * 0.1;
+            cursor.style.left = currentX + 'px';
+            cursor.style.top = currentY + 'px';
+            requestAnimationFrame(updateCursor);
+        }
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        // Hover effects for interactive elements
+        const interactiveElements = document.querySelectorAll('a, button, .card-hover, i');
+
+        interactiveElements.forEach(element => {
+            element.addEventListener('mouseenter', () => {
+                cursor.classList.add('hover');
+            });
+
+            element.addEventListener('mouseleave', () => {
+                cursor.classList.remove('hover');
+            });
+        });
+
+        // Start cursor animation
+        updateCursor();
+
+
     </script>
 
