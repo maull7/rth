@@ -1397,7 +1397,16 @@
   menuBtn.addEventListener("click", () => {
     menu.classList.toggle("hidden"); // buka/tutup menu
   });
+  window.addEventListener('scroll', () => {
+  const navbar = document.getElementById('navbar');
+  if (window.scrollY > 50) {
+    navbar.classList.add('bg-white/50', 'shadow-md');
+  } else {
+    navbar.classList.remove('bg-white/50', 'shadow-md');
+  }
+});
 </script>
+
 
  <script>
         // Initialize Swiper
